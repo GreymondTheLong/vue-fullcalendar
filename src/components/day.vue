@@ -104,10 +104,10 @@ export default {
         return '<div class="outlined event" style="width: '+percentWidth
             +'%; background-color: #' + color +'; color: '+event.textColor+ ';">' 
           + event.type + ' - ' + event.title + ' - ' + event.recipient 
-          + ' || (duration: ' + duration 
-          + '. start/end: ' + event.startTime + '/' 
-          + (event.endTime != undefined ? event.endTime : 
-              moment(event.startTime, 'h:mma').add(parseInt(duration), 'm').format('h:mm a'))
+          // + ' || (duration: ' + duration 
+          // + '. start/end: ' + event.startTime + '/' 
+          // + (event.endTime != undefined ? event.endTime : 
+              // moment(event.startTime, 'h:mma').add(parseInt(duration), 'm').format('h:mm a'))
           // + '. width: ' + pixelWidth // debugging line
           + '</div>'
       }
