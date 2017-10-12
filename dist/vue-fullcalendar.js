@@ -35533,7 +35533,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_c('div', {
 	    staticClass: "time-row"
 	  }, [_c('div', {
-	    staticClass: "bordered time-cell"
+	    staticClass: "outlined time-cell"
 	  }, [_vm._v("Resource")]), _vm._v(" "), _vm._l((_vm.headerTimes), function(time) {
 	    return _c('div', {
 	      staticClass: "outlined time-cell"

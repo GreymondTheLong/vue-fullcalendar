@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <div class="time-row">
-        <div class="bordered time-cell">Resource</div>
+        <div class="outlined time-cell">Resource</div>
         <div class="outlined time-cell" v-for="time in headerTimes">
             <span>{{time}}</span>
         </div>
