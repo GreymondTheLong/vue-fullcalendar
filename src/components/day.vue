@@ -3,7 +3,7 @@
     <div v-for="resource in resourceGroups">
       <day-header class="resource-header" :headerTimes="timeArray"></day-header>
       <div class="time-row" v-for="name in resource.resourceNames">
-        <div class="bordered time-cell">{{name}}</div> 
+        <div class="outlined time-cell">{{name}}</div> 
         <div class="outlined time-cell" v-for="(time, index) in timeArray" ref="timecell">
            <div v-html="getEventElement(name, time, index)"></div>
         </div>
@@ -102,7 +102,7 @@ export default {
         let color = event.color != null ? event.color : this.colors[index % this.colors.length]
 
         return '<div class="outlined event" style="width: '+percentWidth
-            +'%; background-color: #' + color +'; color: '+event.textColor+ ';">' 
+            +'%; background-color: #' + color +'; color: #'+event.textColor+ '; outline-color: #'+color+' !important;">' 
           + event.type + ' - ' + event.title + ' - ' + event.recipient 
           // + ' || (duration: ' + duration 
           // + '. start/end: ' + event.startTime + '/' 

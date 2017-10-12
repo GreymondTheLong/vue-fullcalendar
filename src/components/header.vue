@@ -13,10 +13,9 @@
       <!-- TODO: figure out if we want to allow the time frame selector to be overridden, or added to with the slot  -->
       <!-- <slot name="header-right">
           </slot> -->
-  
-      <button type="button" @click.stop="showDay" v-bind:class="dayClass">Day</button>
-      <button type="button" @click.stop="showWeek" v-bind:class="weekClass">Week</button>
-      <button type="button" @click.stop="showMonth" v-bind:class="monthClass">Month</button>
+      <button type="button" @click.stop="showDay" v-bind:class="[computedTimeFrame === 'day' ? 'active' : '', dayClass]">Day</button>
+      <button type="button" @click.stop="showWeek" v-bind:class="[computedTimeFrame === 'week' ? 'active' : '', weekClass]">Week</button>
+      <button type="button" @click.stop="showMonth" v-bind:class="[computedTimeFrame === 'month' ? 'active' : '', monthClass]">Month</button>
     </div>
   </div>
 </template>
@@ -62,7 +61,6 @@ export default {
   },
   data() {
     return {
-      
       currentTimeFrame: ''
     }
   },
@@ -177,5 +175,8 @@ export default {
       cursor: pointer;
     }
   }
+}
+.active {
+  background-color: grey;
 }
 </style>
