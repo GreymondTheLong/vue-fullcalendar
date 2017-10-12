@@ -18187,7 +18187,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.event {\n  min-width: 30px;\n  min-height: 30px;\n  max-height: 30px;\n  z-index: 1;\n  position: absolute;\n  left: 1px;\n  top: 10px;\n  overflow:hidden; \n  background-color: lightblue;\n}\n", "", {"version":3,"sources":["/./src/components/day.vue?7efcef8b"],"names":[],"mappings":";AAuHA;EACA,gBAAA;EACA,iBAAA;EACA,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,UAAA;EACA,UAAA;EACA,gBAAA;EACA,4BAAA;CACA","file":"day.vue","sourcesContent":["<template>\r\n  <div class=\"root a-grid\">\r\n    <div v-for=\"resource in resourceGroups\">\r\n      <day-header class=\"resource-header\" :headerTimes=\"timeArray\"></day-header>\r\n      <div class=\"time-row\" v-for=\"name in resource.resourceNames\">\r\n        <div class=\"bordered time-cell\">{{name}}</div> \r\n        <div class=\"outlined time-cell\" v-for=\"(time, index) in timeArray\" ref=\"timecell\">\r\n           <div v-html=\"getEventElement(name, time, index)\"></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport moment from 'moment'\r\nimport _ from 'lodash'\r\nimport dayHeader from './dayHeader'\r\nimport timeFunc from './timeFunc'\r\n\r\n// TODO: handle resize\r\n\r\nexport default {\r\n  props: {\r\n    startDate: {},\r\n    options: {},\r\n    colors: {},\r\n    resourceGroups: {}\r\n  },\r\n  data () { \r\n    return {\r\n      timeSpanWidth: 80\r\n    }\r\n  },\r\n  mounted () {\r\n    this.initTimeSpanWidth()\r\n  },\r\n  computed: {\r\n    timeArray () {\r\n      let dayStartTime = moment(this.options.dayStartTime, 'h:m a')\r\n      let dayEndTime = moment(this.options.dayEndTime, ['h:m a', 'H:m'])\r\n      let currentTime = dayStartTime\r\n      let times = []\r\n\r\n      while(currentTime <= dayEndTime) {\r\n        times.push(currentTime.format('h:mma'))\r\n        currentTime.add(30, 'm')\r\n      }\r\n\r\n      return times\r\n    },\r\n    todaysEvents () {\r\n      let todaysDateString = this.isoTodaysDateString\r\n      let todaysEvents = []\r\n\r\n      this.options.resources.groups.map((item) => {\r\n        var filteredEvents = _.filter(item.events, function (event) {\r\n          return event.date === todaysDateString\r\n        })\r\n        \r\n        if(filteredEvents.length > 0) todaysEvents.push(filteredEvents)\r\n      })\r\n\r\n      return _.flatten(todaysEvents)\r\n    },\r\n    isoTodaysDateString () {\r\n      return this.startDate.clone().format('YYYY-MM-DD')\r\n    }\r\n  },\r\n  watch: {\r\n    startDate (val) {\r\n      this.colorIndex = 0 // reset evertime we change day\r\n      console.log('change in startDate watch new val', val)\r\n      return val\r\n    }\r\n  },\r\n  components: {\r\n    'day-header': dayHeader,\r\n    // 'day-event': dayEvent\r\n  },\r\n  methods: {\r\n    initTimeSpanWidth () {      \r\n      if(this.$refs.timecell == undefined) return\r\n      this.timeSpanWidth = this.$refs.timecell[0].clientWidth + 1.5 // extra for borders\r\n    },\r\n    getEventElement (resourceName, time, index) {\r\n      var dateString = this.isoTodaysDateString      \r\n\r\n      let event = _.find(this.todaysEvents, function (event) {\r\n        return event.resourceName === resourceName && event.startTime === time && event.date === dateString\r\n      })\r\n\r\n      if(event != undefined) {\r\n        // TODO: Probably best to move this to a new component.\r\n        // console.log('event in event elemtn', event)\r\n        let duration = event.duration ? \r\n          timeFunc.convertDurationToMinutes(event.duration) : \r\n          timeFunc.getDurationBetweenTimes(event.startTime, event.endTime)\r\n\r\n        let pixelWidth = duration/30 * this.timeSpanWidth\r\n        let percentWidth = duration/30 * 100 - 2\r\n        let color = event.color != null ? event.color : this.colors[index % this.colors.length]\r\n\r\n        return '<div class=\"outlined event\" style=\"width: '+percentWidth\r\n            +'%; background-color: #' + color +'; color: '+event.textColor+ ';\">' \r\n          + event.type + ' - ' + event.title + ' - ' + event.recipient \r\n          // + ' || (duration: ' + duration \r\n          // + '. start/end: ' + event.startTime + '/' \r\n          // + (event.endTime != undefined ? event.endTime : \r\n              // moment(event.startTime, 'h:mma').add(parseInt(duration), 'm').format('h:mm a'))\r\n          // + '. width: ' + pixelWidth // debugging line\r\n          + '</div>'\r\n      }\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n  .event {\r\n    min-width: 30px;\r\n    min-height: 30px;\r\n    max-height: 30px;\r\n    z-index: 1;\r\n    position: absolute;\r\n    left: 1px;\r\n    top: 10px;\r\n    overflow:hidden; \r\n    background-color: lightblue; \r\n  }\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.event {\n  min-width: 30px;\n  min-height: 30px;\n  max-height: 30px;\n  z-index: 1;\n  position: absolute;\n  left: 1px;\n  top: 10px;\n  overflow:hidden; \n  background-color: lightblue;\n}\n", "", {"version":3,"sources":["/./src/components/day.vue?48609cb5"],"names":[],"mappings":";AAuHA;EACA,gBAAA;EACA,iBAAA;EACA,iBAAA;EACA,WAAA;EACA,mBAAA;EACA,UAAA;EACA,UAAA;EACA,gBAAA;EACA,4BAAA;CACA","file":"day.vue","sourcesContent":["<template>\r\n  <div class=\"root a-grid\">\r\n    <div v-for=\"resource in resourceGroups\">\r\n      <day-header class=\"resource-header\" :headerTimes=\"timeArray\"></day-header>\r\n      <div class=\"time-row\" v-for=\"name in resource.resourceNames\">\r\n        <div class=\"outlined time-cell\">{{name}}</div> \r\n        <div class=\"outlined time-cell\" v-for=\"(time, index) in timeArray\" ref=\"timecell\">\r\n           <div v-html=\"getEventElement(name, time, index)\"></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script>\r\nimport moment from 'moment'\r\nimport _ from 'lodash'\r\nimport dayHeader from './dayHeader'\r\nimport timeFunc from './timeFunc'\r\n\r\n// TODO: handle resize\r\n\r\nexport default {\r\n  props: {\r\n    startDate: {},\r\n    options: {},\r\n    colors: {},\r\n    resourceGroups: {}\r\n  },\r\n  data () { \r\n    return {\r\n      timeSpanWidth: 80\r\n    }\r\n  },\r\n  mounted () {\r\n    this.initTimeSpanWidth()\r\n  },\r\n  computed: {\r\n    timeArray () {\r\n      let dayStartTime = moment(this.options.dayStartTime, 'h:m a')\r\n      let dayEndTime = moment(this.options.dayEndTime, ['h:m a', 'H:m'])\r\n      let currentTime = dayStartTime\r\n      let times = []\r\n\r\n      while(currentTime <= dayEndTime) {\r\n        times.push(currentTime.format('h:mma'))\r\n        currentTime.add(30, 'm')\r\n      }\r\n\r\n      return times\r\n    },\r\n    todaysEvents () {\r\n      let todaysDateString = this.isoTodaysDateString\r\n      let todaysEvents = []\r\n\r\n      this.options.resources.groups.map((item) => {\r\n        var filteredEvents = _.filter(item.events, function (event) {\r\n          return event.date === todaysDateString\r\n        })\r\n        \r\n        if(filteredEvents.length > 0) todaysEvents.push(filteredEvents)\r\n      })\r\n\r\n      return _.flatten(todaysEvents)\r\n    },\r\n    isoTodaysDateString () {\r\n      return this.startDate.clone().format('YYYY-MM-DD')\r\n    }\r\n  },\r\n  watch: {\r\n    startDate (val) {\r\n      this.colorIndex = 0 // reset evertime we change day\r\n      console.log('change in startDate watch new val', val)\r\n      return val\r\n    }\r\n  },\r\n  components: {\r\n    'day-header': dayHeader,\r\n    // 'day-event': dayEvent\r\n  },\r\n  methods: {\r\n    initTimeSpanWidth () {      \r\n      if(this.$refs.timecell == undefined) return\r\n      this.timeSpanWidth = this.$refs.timecell[0].clientWidth + 1.5 // extra for borders\r\n    },\r\n    getEventElement (resourceName, time, index) {\r\n      var dateString = this.isoTodaysDateString      \r\n\r\n      let event = _.find(this.todaysEvents, function (event) {\r\n        return event.resourceName === resourceName && event.startTime === time && event.date === dateString\r\n      })\r\n\r\n      if(event != undefined) {\r\n        // TODO: Probably best to move this to a new component.\r\n        // console.log('event in event elemtn', event)\r\n        let duration = event.duration ? \r\n          timeFunc.convertDurationToMinutes(event.duration) : \r\n          timeFunc.getDurationBetweenTimes(event.startTime, event.endTime)\r\n\r\n        let pixelWidth = duration/30 * this.timeSpanWidth\r\n        let percentWidth = duration/30 * 100 - 2\r\n        let color = event.color != null ? event.color : this.colors[index % this.colors.length]\r\n\r\n        return '<div class=\"outlined event\" style=\"width: '+percentWidth\r\n            +'%; background-color: #' + color +'; color: #'+event.textColor+ '; outline-color: #'+color+' !important;\">' \r\n          + event.type + ' - ' + event.title + ' - ' + event.recipient \r\n          // + ' || (duration: ' + duration \r\n          // + '. start/end: ' + event.startTime + '/' \r\n          // + (event.endTime != undefined ? event.endTime : \r\n              // moment(event.startTime, 'h:mma').add(parseInt(duration), 'm').format('h:mm a'))\r\n          // + '. width: ' + pixelWidth // debugging line\r\n          + '</div>'\r\n      }\r\n    }\r\n  }\r\n}\r\n</script>\r\n\r\n<style>\r\n  .event {\r\n    min-width: 30px;\r\n    min-height: 30px;\r\n    max-height: 30px;\r\n    z-index: 1;\r\n    position: absolute;\r\n    left: 1px;\r\n    top: 10px;\r\n    overflow:hidden; \r\n    background-color: lightblue; \r\n  }\r\n</style>\r\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -18317,7 +18317,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var percentWidth = duration / 30 * 100 - 2;
 	        var color = event.color != null ? event.color : this.colors[index % this.colors.length];
 	
-	        return '<div class="outlined event" style="width: ' + percentWidth + '%; background-color: #' + color + '; color: ' + event.textColor + ';">' + event.type + ' - ' + event.title + ' - ' + event.recipient
+	        return '<div class="outlined event" style="width: ' + percentWidth + '%; background-color: #' + color + '; color: #' + event.textColor + '; outline-color: #' + color + ' !important;">' + event.type + ' - ' + event.title + ' - ' + event.recipient
 	        // + ' || (duration: ' + duration 
 	        // + '. start/end: ' + event.startTime + '/' 
 	        // + (event.endTime != undefined ? event.endTime : 
@@ -35565,7 +35565,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _c('div', {
 	        staticClass: "time-row"
 	      }, [_c('div', {
-	        staticClass: "bordered time-cell"
+	        staticClass: "outlined time-cell"
 	      }, [_vm._v(_vm._s(name))]), _vm._v(" "), _vm._l((_vm.timeArray), function(time, index) {
 	        return _c('div', {
 	          ref: "timecell",
@@ -44726,7 +44726,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n.full-calendar-header {\n  display: flex;\n  align-items: center;\n}\n.full-calendar-header .header-left,\n  .full-calendar-header .header-right {\n    flex: 1;\n}\n.full-calendar-header .header-center {\n    flex: 3;\n    text-align: center;\n}\n.full-calendar-header .header-center .title {\n      margin: 0 10px;\n}\n.full-calendar-header .header-center .prev-month,\n    .full-calendar-header .header-center .next-month {\n      cursor: pointer;\n}\n", ""]);
+	exports.push([module.id, "\n.full-calendar-header {\n  display: flex;\n  align-items: center;\n}\n.full-calendar-header .header-left,\n  .full-calendar-header .header-right {\n    flex: 1;\n}\n.full-calendar-header .header-center {\n    flex: 3;\n    text-align: center;\n}\n.full-calendar-header .header-center .title {\n      margin: 0 10px;\n}\n.full-calendar-header .header-center .prev-month,\n    .full-calendar-header .header-center .next-month {\n      cursor: pointer;\n}\n.active {\n  background-color: grey;\n}\n", ""]);
 	
 	// exports
 
@@ -44751,7 +44751,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	//
 	//
 	//
 	//
@@ -44815,7 +44814,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  data: function data() {
 	    return {
-	
 	      currentTimeFrame: ''
 	    };
 	  },
@@ -44936,7 +44934,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, [_vm._v(_vm._s(_vm.rightArrow))])]), _vm._v(" "), _c('div', {
 	    staticClass: "header-right"
 	  }, [_c('button', {
-	    class: _vm.dayClass,
+	    class: [_vm.computedTimeFrame === 'day' ? 'active' : '', _vm.dayClass],
 	    attrs: {
 	      "type": "button"
 	    },
@@ -44947,7 +44945,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, [_vm._v("Day")]), _vm._v(" "), _c('button', {
-	    class: _vm.weekClass,
+	    class: [_vm.computedTimeFrame === 'week' ? 'active' : '', _vm.weekClass],
 	    attrs: {
 	      "type": "button"
 	    },
@@ -44958,7 +44956,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	    }
 	  }, [_vm._v("Week")]), _vm._v(" "), _c('button', {
-	    class: _vm.monthClass,
+	    class: [_vm.computedTimeFrame === 'month' ? 'active' : '', _vm.monthClass],
 	    attrs: {
 	      "type": "button"
 	    },
