@@ -1,7 +1,7 @@
 {
-  "name": "vue-fullcalendar",
-  "version": "1.0.9",
-  "author": "Sunny Wang",
+  "name": "vue-fitcalendar",
+  "version": "0.0.1",
+  "author": "init: Sunny Wang, expanded by Raymond Murray",
   "license": "MIT",
   "description": "pure vue-based fullcalendar, no jquery moment required",
   "main": "dist/vue-fullcalendar.js",
