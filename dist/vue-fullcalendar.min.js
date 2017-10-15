@@ -1,5 +1,5 @@
 /*!
- * vue-fullcalendar v1.0.9
+ * vue-fullcalendar v0.0.1
  * (c) 2017 Sunny Wang <sunnywang0104@163.com> 
  * @license MIT
  */

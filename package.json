@@ -5,6 +5,7 @@
   "license": "MIT",
   "description": "pure vue-based fullcalendar, no jquery moment required",
   "main": "dist/vue-fullcalendar.js",
+  "private": true,
   "files": [
     "dist/vue-fullcalendar.js",
     "dist/vue-fullcalendar.min.js",
