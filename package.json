@@ -16,8 +16,8 @@
     "build": "webpack --progress --hide-modules --config webpack.build.js && webpack --progress --hide-modules --config webpack.build.min.js -p"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Wanderxx/vue-fullcalendar.git"
+    "type": "gitlab",
+    "url": "git+ssh://git@gitlabhq.featureit.co.nz:raymond.murray/fitcalendar.git"
   },
   "dependencies": {
     "es6-promise": "^4.0.5",
