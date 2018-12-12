@@ -1,6 +1,6 @@
 /*!
  * vue-fullcalendar v1.0.9
- * (c) 2017 Sunny Wang <sunnywang0104@163.com> 
+ * (c) 2018 Sunny Wang <sunnywang0104@163.com> 
  * @license MIT
  */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "E:\\Cygwin\\home\\Raymond\\vue-fullcalendar\\src\\fullCalendar.vue"
+	Component.options.__file = "/home/raymond.murray/dev/vue-fullcalendar/src/fullCalendar.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] fullCalendar.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -16630,7 +16630,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "E:\\Cygwin\\home\\Raymond\\vue-fullcalendar\\src\\components\\eventCard.vue"
+	Component.options.__file = "/home/raymond.murray/dev/vue-fullcalendar/src/components/eventCard.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] eventCard.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -17346,7 +17346,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "E:\\Cygwin\\home\\Raymond\\vue-fullcalendar\\src\\components\\month.vue"
+	Component.options.__file = "/home/raymond.murray/dev/vue-fullcalendar/src/components/month.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] month.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -18132,7 +18132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "E:\\Cygwin\\home\\Raymond\\vue-fullcalendar\\src\\components\\day.vue"
+	Component.options.__file = "/home/raymond.murray/dev/vue-fullcalendar/src/components/day.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] day.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -35438,7 +35438,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "E:\\Cygwin\\home\\Raymond\\vue-fullcalendar\\src\\components\\dayHeader.vue"
+	Component.options.__file = "/home/raymond.murray/dev/vue-fullcalendar/src/components/dayHeader.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] dayHeader.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -35606,7 +35606,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "E:\\Cygwin\\home\\Raymond\\vue-fullcalendar\\src\\components\\week.vue"
+	Component.options.__file = "/home/raymond.murray/dev/vue-fullcalendar/src/components/week.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] week.vue: functional components are not supported with templates, they should use render functions.")}
 	
@@ -44671,7 +44671,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* cssModules */
 	  null
 	)
-	Component.options.__file = "E:\\Cygwin\\home\\Raymond\\vue-fullcalendar\\src\\components\\header.vue"
+	Component.options.__file = "/home/raymond.murray/dev/vue-fullcalendar/src/components/header.vue"
 	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
 	if (Component.options.functional) {console.error("[vue-loader] header.vue: functional components are not supported with templates, they should use render functions.")}
 	
